@@ -35,4 +35,21 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
+
+def self.search(search,option,choice)
+    if option == 'User'
+      if choice == '完全一致'
+       User.where(['name LIKE ?', "#{search}"])
+      elsif choice == '前方一致'
+        User.where(['name LIKE ?', "#{search}%"])
+      elsif choice == '後方一致'
+        User.where(['name LIKE ?', "%#{search}"])
+      elsif choice == '部分一致'
+        User.where(['name LIKE ?', "%#{search}%"])
+      else
+         "検索結果が見つかりませんでした"
+      end
+    end
+  end
+
 end

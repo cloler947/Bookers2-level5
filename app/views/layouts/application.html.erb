@@ -35,11 +35,19 @@
         </nav>
 
       </div>
+      
     </header>
     <!--ヘッダーの記述-->
     <div class="body">
       <div class="container">
         <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
+
+        <% if user_signed_in? %>
+          <div class="search">
+             <%= render 'search/searchform' %><!-- 検索フォーム -->
+          </div>
+        <% end %>
+       
       <%= yield %>
       </div>
     </div>

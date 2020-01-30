@@ -1,0 +1,20 @@
+
+<div class="row">
+
+	<% if @option == 'User' %>
+		<div class="col-xs-12">
+			<h2>Users</h2>
+			<%= render 'users/index', users: @users %>
+		</div>
+
+	<% elsif @option == 'Book' %>
+		<div class="col-xs-12">
+			<h2>Books index</h2>
+			<!--books一覧 -->
+			<%= render 'books/index', books: @books %>
+		</div>
+	<% else %>
+		<h1>検索結果が見つかりませんでした</h1>
+	<% end %>
+
+</div>
